@@ -22,21 +22,21 @@ This Implementation
 
 To build the factor oracle:
 
-> `f = FactorOracle.new`
+> `f = FactorOracle.new
 
-> `f.add_letter('',       'a')`
+>  f.add_letter('',       'a')
 
-> `f.add_letter('a',      'b')`
+>  f.add_letter('a',      'b')
 
-> `f.add_letter('ab',     'b')`
+>  f.add_letter('ab',     'b')
 
-> `f.add_letter('abb',    'b')`
+>  f.add_letter('abb',    'b')
 
-> `f.add_letter('abbb',   'a')`
+>  f.add_letter('abbb',   'a')
 
-> `f.add_letter('abbba',  'a')`
+>  f.add_letter('abbba',  'a')
 
-> `f.add_letter('abbbaa', 'b')`
+>  f.add_letter('abbbaa', 'b')`
 
 To then see if strings match:
 

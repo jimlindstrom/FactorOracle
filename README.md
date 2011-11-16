@@ -1,4 +1,5 @@
-== Overview
+Overview
+=====================
 
 Factor oracles are a data structure / algorithm introduced in the string 
 indexing/matching community in 1999.  They have since been applied to lossy data 
@@ -16,7 +17,8 @@ Check out the online (aka incremental) generation algorithm here:
 
 <http://www.lsi.upc.edu/~marias/teaching/bom.pdf>
 
-== This implementation
+This Implementation
+=====================
 
 To build the factor oracle:
 

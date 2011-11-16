@@ -29,5 +29,6 @@ Once you're configured, building the JavasScript from the command line is easy:
 
 To then see if strings match:
 
-    f.accepts?(factor).should == true
+    is_accepted = f.accepts?('abbb')   # true
+    is_accepted = f.accepts?('abaaaa') # false
 

@@ -54,6 +54,10 @@ class FactorOracle < FiniteStateAutomaton
     return true
   end
 
+  def next_letters_for(str)
+    @alphabet.select{ |letter| accepts?(str + letter) }
+  end
+
 private
 
   def s_sub_x_of_y(x, y)

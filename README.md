@@ -1,5 +1,4 @@
-Overview
-=====================
+# Factor::Oracle
 
 Factor oracles are a data structure / algorithm introduced in the string 
 indexing/matching community in 1999.  They have since been applied to lossy data 
@@ -11,12 +10,23 @@ Read up on them here: <http://en.wikipedia.org/wiki/Factor_oracle>
 
 Check out the online (aka incremental) generation algorithm here: <http://www.lsi.upc.edu/~marias/teaching/bom.pdf>
 
-This Implementation
-=====================
+## Installation
+
+Add this line to your application's Gemfile:
+
+    gem 'factor-oracle'
+
+And then execute:
+
+    $ bundle
+
+Or install it yourself as:
+
+    $ gem install factor-oracle
+
+## Usage
 
 To build the factor oracle:
-
-Once you're configured, building the JavasScript from the command line is easy:
 
     f = FactorOracle.new
     f.add_letter('',       'a')
@@ -31,4 +41,14 @@ To then see if strings match:
 
     is_accepted = f.accepts?('abbb')   # true
     is_accepted = f.accepts?('abaaaa') # false
+
+## Contributing
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
+
+
 

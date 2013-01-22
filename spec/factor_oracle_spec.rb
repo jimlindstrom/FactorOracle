@@ -275,7 +275,33 @@ describe FactorOracle do
       non_factor = "aaaaaaa"
       @f.accepts?(non_factor).should == false
     end
+  end
 
+  describe ".next_letters_for" do
+    before(:each) do
+      @f = FactorOracle.new
+      @f.add_letter('',       'a')
+      @f.add_letter('a',      'b')
+      @f.add_letter('ab',     'b')
+      @f.add_letter('abb',    'b')
+      @f.add_letter('abbb',   'a')
+      @f.add_letter('abbba',  'a')
+      @f.add_letter('abbbaa', 'b')
+    end
+
+    context "given a prefix that isn't accepted" do
+      let(:prefix) { "baaa" }
+      subject { @f.next_letters_for(prefix) }
+      it { should be_an Array }
+      it { should == [] }
+    end
+
+    context "given a prefix that is accepted" do
+      let(:prefix) { "bb" }
+      subject { @f.next_letters_for(prefix) }
+      it { should be_an Array }
+      it { should == ['a', 'b'] }
+    end
   end
 
 end

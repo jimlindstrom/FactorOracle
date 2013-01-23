@@ -21,7 +21,7 @@ module FactorOracle
       prefix.each do |cur_symbol|
         handle_input(cur_symbol)
       end
-      raise Argument.new("can't yet add letters with prefixes that don't match what's been seen so far") if @current_state != @states.last
+      raise ArgumentError.new("can't yet add letters with prefixes that don't match what's been seen so far") if @current_state != @states.last
   
       # now add the transition to the the new letter
       old_state = @states.last

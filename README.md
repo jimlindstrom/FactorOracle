@@ -28,7 +28,7 @@ Or install it yourself as:
 
 To build the factor oracle:
 
-    f = FactorOracle.new
+    f = FactorOracle::FactorOracle.new
     f.add_letter('',       'a')
     f.add_letter('a',      'b')
     f.add_letter('ab',     'b')
@@ -53,7 +53,7 @@ Suppose you had a melody (a set of MIDI pitches) and you wanted to predict the n
                     72, 72, 71, 71, 69, 69, 67, 67, 67, 65, 64, 62, 62, 60]
     midi_pitches_as_letters = midi_pitches.map{ |x| (x+38).chr }
     
-    f = FactorOracle.new
+    f = FactorOracle::FactorOracle.new
     
     1.upto(midi_pitches_as_letters.length) do |x|
       prefix = midi_pitches_as_letters.first(x-1).join

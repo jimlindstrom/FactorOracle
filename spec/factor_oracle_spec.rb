@@ -2,25 +2,25 @@
 
 require 'spec_helper'
 
-describe FactorOracle do
+describe FactorOracle::FactorOracle do
 
   describe ".new" do
     it "should return a new FactorOracle" do
-      FactorOracle.new.should be_an_instance_of FactorOracle
+      FactorOracle::FactorOracle.new.should be_an_instance_of FactorOracle::FactorOracle
     end
     it "should return a subclass of FiniteStateAutomaton" do
-      FactorOracle.new.should be_a_kind_of FiniteStateAutomaton
+      FactorOracle::FactorOracle.new.should be_a_kind_of FactorOracle::FiniteStateAutomaton
     end
     it "should have one state: 0" do 
-      f = FactorOracle.new
+      f = FactorOracle::FactorOracle.new
       f.states.should == [0]
     end
     it "should have an initial state of 0" do 
-      f = FactorOracle.new
+      f = FactorOracle::FactorOracle.new
       f.initial_state.should == 0
     end
     it "should have an empty alphabet" do
-      f = FactorOracle.new
+      f = FactorOracle::FactorOracle.new
       f.alphabet.should == []
     end
   end
@@ -28,80 +28,80 @@ describe FactorOracle do
   describe ".add_letter" do
     ############################################################################
     it "should add a new state" do
-      f = FactorOracle.new
+      f = FactorOracle::FactorOracle.new
       f.add_letter('', 'a')
       f.states.should == [0, 1]
     end
     it "should add transition to the new state" do
-      f = FactorOracle.new
+      f = FactorOracle::FactorOracle.new
       f.add_letter('', 'a')
       f.transitions[0]['a'].should == 1
     end
     it "should add a new symbol when the symbol isn't in the alphabet" do
-      f = FactorOracle.new
+      f = FactorOracle::FactorOracle.new
       f.add_letter('', 'a')
       f.alphabet.should == ['a']
     end
     it "should add back link" do
-      f = FactorOracle.new
+      f = FactorOracle::FactorOracle.new
       f.add_letter('', 'a')
       f.back_link[1].should == 0
     end
     ############################################################################
     it "should add a new state" do
-      f = FactorOracle.new
+      f = FactorOracle::FactorOracle.new
       f.add_letter('', 'a')
       f.add_letter('a','b')
       f.states.should == [0, 1, 2]
     end
     it "should add transition to the new state" do
-      f = FactorOracle.new
+      f = FactorOracle::FactorOracle.new
       f.add_letter('', 'a')
       f.add_letter('a','b')
       f.transitions[1]['b'].should == 2
     end
     it "should add a new symbol when the symbol isn't in the alphabet" do
-      f = FactorOracle.new
+      f = FactorOracle::FactorOracle.new
       f.add_letter('', 'a')
       f.add_letter('a','b')
       f.alphabet.should == ['a', 'b']
     end
     it "should add back link" do
-      f = FactorOracle.new
+      f = FactorOracle::FactorOracle.new
       f.add_letter('', 'a')
       f.add_letter('a','b')
       f.back_link[2].should == 0
     end
     it "should add jump forward links" do
-      f = FactorOracle.new
+      f = FactorOracle::FactorOracle.new
       f.add_letter('', 'a')
       f.add_letter('a','b')
       f.transitions[0]['b'].should == 2
     end
     ############################################################################
     it "should add a new state" do
-      f = FactorOracle.new
+      f = FactorOracle::FactorOracle.new
       f.add_letter('',  'a')
       f.add_letter('a', 'b')
       f.add_letter('ab','b')
       f.states.should == [0, 1, 2, 3]
     end
     it "should add transition to the new state" do
-      f = FactorOracle.new
+      f = FactorOracle::FactorOracle.new
       f.add_letter('',  'a')
       f.add_letter('a', 'b')
       f.add_letter('ab','b')
       f.transitions[2]['b'].should == 3
     end
     it "should add a new symbol when the symbol isn't in the alphabet" do
-      f = FactorOracle.new
+      f = FactorOracle::FactorOracle.new
       f.add_letter('',  'a')
       f.add_letter('a', 'b')
       f.add_letter('ab','b')
       f.alphabet.should == ['a', 'b']
     end
     it "should add back link" do
-      f = FactorOracle.new
+      f = FactorOracle::FactorOracle.new
       f.add_letter('',  'a')
       f.add_letter('a', 'b')
       f.add_letter('ab','b')
@@ -109,7 +109,7 @@ describe FactorOracle do
     end
     ############################################################################
     it "should add a new state" do
-      f = FactorOracle.new
+      f = FactorOracle::FactorOracle.new
       f.add_letter('',    'a')
       f.add_letter('a',   'b')
       f.add_letter('ab',  'b')
@@ -117,7 +117,7 @@ describe FactorOracle do
       f.states.should == [0, 1, 2, 3, 4]
     end
     it "should add transition to the new state" do
-      f = FactorOracle.new
+      f = FactorOracle::FactorOracle.new
       f.add_letter('',    'a')
       f.add_letter('a',   'b')
       f.add_letter('ab',  'b')
@@ -125,7 +125,7 @@ describe FactorOracle do
       f.transitions[3]['b'].should == 4
     end
     it "should add a new symbol when the symbol isn't in the alphabet" do
-      f = FactorOracle.new
+      f = FactorOracle::FactorOracle.new
       f.add_letter('',    'a')
       f.add_letter('a',   'b')
       f.add_letter('ab',  'b')
@@ -133,7 +133,7 @@ describe FactorOracle do
       f.alphabet.should == ['a', 'b']
     end
     it "should add back link" do
-      f = FactorOracle.new
+      f = FactorOracle::FactorOracle.new
       f.add_letter('',    'a')
       f.add_letter('a',   'b')
       f.add_letter('ab',  'b')
@@ -142,7 +142,7 @@ describe FactorOracle do
     end
     ############################################################################
     it "should add a new state" do
-      f = FactorOracle.new
+      f = FactorOracle::FactorOracle.new
       f.add_letter('',      'a')
       f.add_letter('a',     'b')
       f.add_letter('ab',    'b')
@@ -152,7 +152,7 @@ describe FactorOracle do
       f.states.should == [0, 1, 2, 3, 4, 5, 6]
     end
     it "should add transition to the new state" do
-      f = FactorOracle.new
+      f = FactorOracle::FactorOracle.new
       f.add_letter('',      'a')
       f.add_letter('a',     'b')
       f.add_letter('ab',    'b')
@@ -162,7 +162,7 @@ describe FactorOracle do
       f.transitions[5]['a'].should == 6
     end
     it "should add a new symbol when the symbol isn't in the alphabet" do
-      f = FactorOracle.new
+      f = FactorOracle::FactorOracle.new
       f.add_letter('',      'a')
       f.add_letter('a',     'b')
       f.add_letter('ab',    'b')
@@ -172,7 +172,7 @@ describe FactorOracle do
       f.alphabet.should == ['a', 'b']
     end
     it "should add back link" do
-      f = FactorOracle.new
+      f = FactorOracle::FactorOracle.new
       f.add_letter('',      'a')
       f.add_letter('a',     'b')
       f.add_letter('ab',    'b')
@@ -182,7 +182,7 @@ describe FactorOracle do
       f.back_link[6].should == 1
     end
     it "should add jump forward links" do
-      f = FactorOracle.new
+      f = FactorOracle::FactorOracle.new
       f.add_letter('',      'a')
       f.add_letter('a',     'b')
       f.add_letter('ab',    'b')
@@ -193,7 +193,7 @@ describe FactorOracle do
     end
     ############################################################################
     it "should add a new state" do
-      f = FactorOracle.new
+      f = FactorOracle::FactorOracle.new
       f.add_letter('',       'a')
       f.add_letter('a',      'b')
       f.add_letter('ab',     'b')
@@ -204,7 +204,7 @@ describe FactorOracle do
       f.states.should == [0, 1, 2, 3, 4, 5, 6, 7]
     end
     it "should add transition to the new state" do
-      f = FactorOracle.new
+      f = FactorOracle::FactorOracle.new
       f.add_letter('',       'a')
       f.add_letter('a',      'b')
       f.add_letter('ab',     'b')
@@ -215,7 +215,7 @@ describe FactorOracle do
       f.transitions[6]['b'].should == 7
     end
     it "should add a new symbol when the symbol isn't in the alphabet" do
-      f = FactorOracle.new
+      f = FactorOracle::FactorOracle.new
       f.add_letter('',       'a')
       f.add_letter('a',      'b')
       f.add_letter('ab',     'b')
@@ -226,7 +226,7 @@ describe FactorOracle do
       f.alphabet.should == ['a', 'b']
     end
     it "should add back link" do
-      f = FactorOracle.new
+      f = FactorOracle::FactorOracle.new
       f.add_letter('',       'a')
       f.add_letter('a',      'b')
       f.add_letter('ab',     'b')
@@ -241,7 +241,7 @@ describe FactorOracle do
 
   describe ".accepts?" do
     before(:each) do
-      @f = FactorOracle.new
+      @f = FactorOracle::FactorOracle.new
       @f.add_letter('',       'a')
       @f.add_letter('a',      'b')
       @f.add_letter('ab',     'b')
@@ -279,7 +279,7 @@ describe FactorOracle do
 
   describe ".next_letters_for" do
     before(:each) do
-      @f = FactorOracle.new
+      @f = FactorOracle::FactorOracle.new
       @f.add_letter('',       'a')
       @f.add_letter('a',      'b')
       @f.add_letter('ab',     'b')

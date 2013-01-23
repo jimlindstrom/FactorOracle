@@ -5,11 +5,11 @@ require 'factor-oracle/version'
 
 Gem::Specification.new do |gem|
   gem.name          = "factor-oracle"
-  gem.version       = Factor::Oracle::VERSION
+  gem.version       = FactorOracle::VERSION
   gem.authors       = ["Jim Lindstrom"]
   gem.email         = ["jim.lindstrom@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{Ruby implementation of a factor oracle}
+  gem.summary       = %q{Ruby implementation of a factor oracle}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)

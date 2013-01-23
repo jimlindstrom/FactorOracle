@@ -2,12 +2,12 @@
 
 require 'spec_helper'
 
-describe FactorsHelper do
+describe FactorOracle::FactorsHelper do
 
   before (:all) do
     @p = "abbaabbaabbababb"
     @alphabet = ["a", "b"]
-    @f = FactorsHelper.new(@p, @alphabet)
+    @f = FactorOracle::FactorsHelper.new(@p, @alphabet)
 
     @known_factor = "aabba"
     @known_nonfactor = "bbb"
@@ -24,12 +24,12 @@ describe FactorsHelper do
 
     @p2 = "abbbaab"
     @alphabet = ["a", "b"]
-    @f2 = FactorsHelper.new(@p2, @alphabet)
+    @f2 = FactorOracle::FactorsHelper.new(@p2, @alphabet)
   end
 
   describe ".new" do
     it "returns a new FactorsHelper" do
-      FactorsHelper.new(@p, @alphabet).should be_an_instance_of FactorsHelper
+      FactorOracle::FactorsHelper.new(@p, @alphabet).should be_an_instance_of FactorOracle::FactorsHelper
     end
   end
 

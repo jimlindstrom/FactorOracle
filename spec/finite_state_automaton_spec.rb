@@ -1,18 +1,18 @@
 # finite_state_automaton_spec.rb
 
-describe FiniteStateAutomaton do
+describe FactorOracle::FiniteStateAutomaton do
 
   before (:each) do
     @alphabet = ["0", "1"]
     @states = [1, 2]
     @initial_state = 1
     @transitions = { 1 => { "0" => 2, "1" => 1 }, 2 => { "0" => 1, "1" => 2 } }
-    @fsa = FiniteStateAutomaton.new(@alphabet, @states, @initial_state, @transitions)
+    @fsa = FactorOracle::FiniteStateAutomaton.new(@alphabet, @states, @initial_state, @transitions)
   end
 
   describe ".new" do
     it "returns a new FiniteStateAutomaton" do
-      FiniteStateAutomaton.new(@alphabet, @states, @initial_state, @transitions).should be_an_instance_of FiniteStateAutomaton
+      FactorOracle::FiniteStateAutomaton.new(@alphabet, @states, @initial_state, @transitions).should be_an_instance_of FactorOracle::FiniteStateAutomaton
     end
     it "puts the FSA in its initial state" do
       @fsa.current_state.should == @initial_state

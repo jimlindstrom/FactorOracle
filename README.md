@@ -1,4 +1,4 @@
-# Factor::Oracle
+# FactorOracle
 
 Factor oracles are a data structure / algorithm introduced in the string 
 indexing/matching community in 1999.  They have since been applied to lossy data 

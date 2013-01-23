@@ -2,7 +2,6 @@
 
 module FactorOracle
   class FactorsHelper 
-  
     def initialize(p, alphabet)
       @p = p
       @alphabet = alphabet

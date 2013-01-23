@@ -18,7 +18,7 @@ module FactorOracle
     def add_letter(prefix, symbol)
       # first make sure that prefix is the set of symbols needed to transition through each state
       reset
-      prefix.split(//).each do |cur_symbol|
+      prefix.each do |cur_symbol|
         handle_input(cur_symbol)
       end
       raise Argument.new("can't yet add letters with prefixes that don't match what's been seen so far") if @current_state != @states.last
@@ -43,11 +43,11 @@ module FactorOracle
       @back_link[new_state] = s
     end
   
-    def accepts?(str)
+    def accepts?(arr)
       reset
       begin
-        str.split(//).each do |s|
-         handle_input(s)
+        arr.each do |letter|
+         handle_input(letter)
         end
       rescue
         return false
@@ -55,8 +55,8 @@ module FactorOracle
       return true
     end
   
-    def next_letters_for(str)
-      @alphabet.select{ |letter| accepts?(str + letter) }
+    def next_letters_for(arr)
+      @alphabet.select{ |letter| accepts?(arr + [letter]) }
     end
   
   private

@@ -7,7 +7,7 @@ midi_pitches = [67, 67, 69, 69, 71, 71, 72, 74, 74, 72, 72, 71, 69, 71, 72, 69, 
                 72, 72, 71, 71, 69, 69, 67, 67, 67, 65, 64, 62, 62, 60]
 midi_pitches_as_letters = midi_pitches.map{ |x| (x+38).chr }
 
-f = FactorOracle.new
+f = FactorOracle::FactorOracle.new
 
 1.upto(midi_pitches_as_letters.length) do |x|
   prefix = midi_pitches_as_letters.first(x-1).join
